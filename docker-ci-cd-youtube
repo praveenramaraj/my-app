@@ -11,7 +11,7 @@ node{
      sh 'docker build -t spartanspraveen/my-app:2.0.0 .'
    }
    stage('Push Docker Image'){
-     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+     withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-hub')]) {
         sh "docker login -u spartanspraveen -p ${dockerHubPwd}"
      }
      sh 'docker push spartanspraveen/my-app:2.0.0'
