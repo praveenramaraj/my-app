@@ -12,7 +12,7 @@ node{
    }
    stage('Push Docker Image'){
      withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-hub')]) {
-        sh "docker login -u spartanspraveen -p ${dockerHubPwd}"
+        sh "docker login -u spartanspraveen -p ${docker-hub}"
      }
      sh 'docker push spartanspraveen/my-app:2.0.0'
    }
